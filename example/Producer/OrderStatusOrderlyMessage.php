@@ -4,7 +4,7 @@
  * Date: 2021/1/20
  */
 
-namespace Example\Producer;
+
 
 
 use Losingbattle\RocketMqHttp\Annotation\Producer;

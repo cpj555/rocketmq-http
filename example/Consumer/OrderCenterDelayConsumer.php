@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Example\Consumer;
+
 
 use Example\Consumer\MessageData\OrderCloseData;
 use Example\Consumer\MessageData\OrderSubmitData;

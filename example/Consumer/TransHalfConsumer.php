@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 
-namespace Example\Consumer;
+
 
 use Losingbattle\RocketMqHttp\Annotation\Consumer;
 use Losingbattle\RocketMqHttp\Message\ConsumerMessage;

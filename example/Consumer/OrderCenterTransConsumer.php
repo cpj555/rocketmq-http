@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Example\Consumer;
+
 
 use Example\Consumer\MessageData\OrderCloseData;
 use Example\Consumer\MessageData\OrderSubmitData;
@@ -27,7 +27,6 @@ class OrderCenterTransConsumer extends ConsumerMessage
 
     public function orderCreate(array $data): string
     {
-        dd($data);
         return Result::ACK;
     }
 }

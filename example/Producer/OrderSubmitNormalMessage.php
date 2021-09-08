@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Example\Producer;
+
 
 use Losingbattle\RocketMqHttp\Annotation\Producer;
 use Losingbattle\RocketMqHttp\Message\ProducerMessage;

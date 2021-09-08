@@ -6,7 +6,7 @@ composer require Losingbattle/rocketmq-http
 ```
 
 - hyperf框架直接引用即可,使用姿势与官方rabbitmq基本一致
-- 其余框架生产者依赖guzzlehttp,消费者使用了协程消费依赖swoole
+- 其余框架生产者依赖guzzlehttp,psr/container,实现即可,消费者使用了协程消费依赖swoole [example](example/RocketMqFactory.php)
 - 阿里云的rocketmq-http本身存在一些问题,当gid+topic+instance过长时消费消息将会报错,所以只能自身在创建时把控(Code: NotSupport Message: the length of GID(CID) and TOPIC is too long, total length(include instance) should not longer than 119, please change another topic or another cid RequestId : 605402BE384531236C9E1205 HostId)
 - 普通消息相关已在线上稳定运行一年多
 
@@ -22,7 +22,7 @@ composer require Losingbattle/rocketmq-http
 
 hyperf中使用一下命令初始化即可
 ```
-php bin/hyperf.php vendor:publish losingbattle
+php bin/hyperf.php vendor:publish losingbattle/rocketmq-http
 ```
 
 
@@ -123,7 +123,23 @@ class OrderCenterConsumer extends ConsumerMessage
 
 ```
 
-##demo
+## 日志
+
+dependencies.php中添加(建议只在本地调试时使用,本质上是不停的http轮询,影响日志查看)
+```php
+return [
+    RocketMqHttpLoggerFactory::class,//(example文件中,重写loggerfaoctory)
+];
+```
+listener.php 中添加消费listener
+```php
+return [
+    Losingbattle\RocketMqHttp\Listener\ConsumeListener::class,
+];
+```
+
+
+## demo
 
 [普通消息生产](example/Producer/OrderSubmitNormalMessage.php)
 

@@ -17,9 +17,9 @@
     "prefer-stable": true,
     "require": {
         "php": ">=7.4",
-        "hyperf/contract": "2.1.*",
-        "hyperf/utils": "2.1.*",
-        "hyperf/guzzle": "2.1.*",
+        "hyperf/contract": "2.2.*",
+        "hyperf/utils": "2.2.*",
+        "hyperf/guzzle": "2.2.*",
         "psr/container": "^1.0",
         "psr/log": "^1.0"
     },

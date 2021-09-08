@@ -1,0 +1,10 @@
+/vendor/
+.idea/
+.vscode/
+data/
+doc/
+.svn/
+nbProject/
+runtime/
+.env
+composer.lock

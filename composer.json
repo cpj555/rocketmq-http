@@ -1,0 +1,44 @@
+{
+    "name": "losingbattle/rocketmq-http",
+    "description": "基于阿里云的rocketmq-http客户端及服务端封装",
+    "authors": [
+        {
+            "name": "cpj",
+            "email": "741696717@qq.com"
+        }
+    ],
+    "keywords": [
+        "php",
+        "hyperf",
+        "mq",
+        "rocketmq-http"
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=7.4",
+        "hyperf/contract": "2.1.*",
+        "hyperf/utils": "2.1.*",
+        "hyperf/guzzle": "2.1.*",
+        "psr/container": "^1.0",
+        "psr/log": "^1.0"
+    },
+    "autoload": {
+        "files": [
+            "src/Functions.php"
+        ],
+        "psr-4": {
+            "Losingbattle\\RocketMqHttp\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Losingbattle\\RocketMqHttp\\Test\\": "tests"
+        }
+    },
+    "extra": {
+        "hyperf": {
+            "config": "Losingbattle\\RocketMqHttp\\ConfigProvider"
+        }
+    }
+}

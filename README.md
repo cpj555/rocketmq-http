@@ -5,6 +5,11 @@
 composer require Losingbattle/rocketmq-http
 ```
 
+- hyperf框架直接引用即可,使用姿势与官方rabbitmq基本一致
+- 其余框架生产者依赖guzzlehttp,消费者使用了协程消费依赖swoole
+- 阿里云的rocketmq-http本身存在一些问题,当gid+topic+instance过长时消费消息将会报错,所以只能自身在创建时把控(Code: NotSupport Message: the length of GID(CID) and TOPIC is too long, total length(include instance) should not longer than 119, please change another topic or another cid RequestId : 605402BE384531236C9E1205 HostId)
+- 普通消息相关已在线上稳定运行一年多
+
 ## 默认配置
 
 |       配置                   |  类型  |  默认值   |      备注       |
@@ -15,6 +20,10 @@ composer require Losingbattle/rocketmq-http
 |  instance_id              | string  |            |   实例id       |
 |  concurrent.limit         | int     |     0      | 同时消费的数量   |
 
+hyperf中使用一下命令初始化即可
+```
+php bin/hyperf.php vendor:publish losingbattle
+```
 
 
 ## 投递消息
@@ -65,6 +74,7 @@ $m = $producer->produce($testMessage,1);
 
 ```
 
+
 ## 消费消息
 
 ```php
@@ -96,27 +106,41 @@ class OrderCenterConsumer extends ConsumerMessage
 
     public function updateOrderStatus($x)
     {
-        dd('xxx');
-        dd($x);
         return Result::ACK;
     }
 
     public function test($x)
     {
-        dd('test');
-        dd($x);
         return Result::ACK;
     }
 
     public function consumeMessage($consumeMessageResponse)
     {
-        dd('11111111');
-        dd($consumeMessageResponse);
-        sleep(5);
-        dd('2222222');
-
+        //没有指定tag则默认使用consumeMessage
         return Result::ACK;
     }
 }
 
 ```
+
+##demo
+
+[普通消息生产](example/Producer/OrderSubmitNormalMessage.php)
+
+[普通消息消费](example/Consumer/OrderCenterConsumer.php)
+
+[顺序消息生产](example/Producer/OrderStatusOrderlyMessage.php)
+
+[顺序消息消费](example/Consumer/OrderCenterOrderlyConsumer.php)
+
+[延时消息生产](example/Producer/OrderCloseDelayMessage.php)
+
+延时消息生产与普通消息相比只是在注解上多个一个delayTtl(秒)的属性
+
+[延迟消息消费](example/Consumer/OrderCenterDelayConsumer.php)
+
+延时消息与普通基本在消费形式上没有太大区别,只有在阿里云控制台有区分
+
+[事务消息](example/Producer/OrderCreateTransMessage.php)
+
+[普通消息生产](example/Producer/OrderSubmitNormalMessage.php)

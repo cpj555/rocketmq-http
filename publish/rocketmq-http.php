@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use function Hyperf\Support\env;
+
 return [
     'host' => env('ROCKETMQ_HTTP_HOST'),
     'access_key_id' => env('ROCKETMQ_HTTP_ACCESS_KEY_ID'),

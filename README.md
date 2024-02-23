@@ -45,9 +45,8 @@ namespace App\Rocketmq\Producer;
 use Losingbattle\RocketMqHttp\Annotation\Producer;
 use Losingbattle\RocketMqHttp\Message\ProducerMessage;
 
-/**
- * @Producer(topic="order_normal_topic",tag="tag_default_share-order_C_TERMINAL_updateDraftOrderStatus",delayTtl=1)
- */
+
+#[Producer(topic: "order_center_normal_topic", tag: "order_submit")]
 class TestMessage extends ProducerMessage
 {
 
@@ -88,9 +87,7 @@ use Losingbattle\RocketMqHttp\Annotation\Consumer;
 use Losingbattle\RocketMqHttp\Message\ConsumerMessage;
 use Losingbattle\RocketMqHttp\Result;
 
-/**
- * @Consumer(groupId="GID_hyperf", topic="order_normal_topic", numOfMessages=16, waitSeconds=30, maxConsumption=5)
- */
+#[Consumer(topic: "order_center_normal_topic", groupId: "GID_order_center_status_change", numOfMessages: 16, waitSeconds: 30)]
 class OrderCenterConsumer extends ConsumerMessage
 {
     public function __construct()

@@ -7,7 +7,7 @@ namespace Losingbattle\RocketMqHttp;
 
 use Losingbattle\RocketMqHttp\Contract\PackerInterface;
 use Losingbattle\RocketMqHttp\Listener\BeforeMainServerStartListener;
-use Hyperf\Utils\Packer\JsonPacker;
+use Hyperf\Codec\Packer\JsonPacker;
 
 class ConfigProvider
 {

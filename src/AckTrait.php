@@ -9,8 +9,8 @@ use Losingbattle\RocketMqHttp\Message\AckMessage;
 use Losingbattle\RocketMqHttp\Message\AckMessageInterface;
 use Losingbattle\RocketMqHttp\Message\ConsumerMessageInterface;
 use Losingbattle\RocketMqHttp\Message\ProducerMessageInterface;
-use Hyperf\Utils\Arr;
-use Hyperf\Utils\Codec\Xml;
+use Hyperf\Collection\Arr;
+use Hyperf\Codec\Xml;
 
 trait AckTrait
 {

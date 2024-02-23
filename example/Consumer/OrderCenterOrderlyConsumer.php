@@ -10,9 +10,8 @@ use Losingbattle\RocketMqHttp\Annotation\Consumer;
 use Losingbattle\RocketMqHttp\Message\ConsumerMessage;
 use Losingbattle\RocketMqHttp\Result;
 
-/**
- * @Consumer(groupId="GID_order_orderly", topic="order_orderly_topic",orderly=true, numOfMessages=16, waitSeconds=30)
- */
+
+#[Consumer(topic: "order_orderly_topic", groupId: "GID_order_orderly", numOfMessages: 16, waitSeconds: 30, orderly: true)]
 class OrderCenterOrderlyConsumer extends ConsumerMessage
 {
     public function __construct()

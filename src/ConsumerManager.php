@@ -10,6 +10,7 @@ use Hyperf\Di\Annotation\AnnotationCollector;
 use Hyperf\Process\AbstractProcess;
 use Hyperf\Process\ProcessManager;
 use Psr\Container\ContainerInterface;
+use function Hyperf\Support\make;
 
 class ConsumerManager
 {

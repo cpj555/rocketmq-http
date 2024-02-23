@@ -14,12 +14,14 @@ use Losingbattle\RocketMqHttp\Message\Response\ConsumeMessageResponse;
 use Hyperf\Contract\ConfigInterface;
 use Hyperf\Di\ReflectionManager;
 use Hyperf\ExceptionHandler\Formatter\FormatterInterface;
-use Hyperf\Utils\Arr;
-use Hyperf\Utils\Collection;
-use Hyperf\Utils\Coroutine\Concurrent;
+use Hyperf\Collection\Arr;
+use Hyperf\Collection\Collection;
+use Hyperf\Coroutine\Concurrent;
 use Psr\Container\ContainerInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\Log\LoggerInterface;
+use function Hyperf\Support\call;
+
 
 class Consumer extends Client
 {
@@ -175,7 +177,7 @@ class Consumer extends Client
                     $reflectionMethod = ReflectionManager::reflectMethod(get_class($c),$method);
                     $parameters = $reflectionMethod->getParameters();
                     $parameter = current($parameters);
-                    if ($parameter->getClass()) {
+                    if ($parameter->getType()) {
                         $classname = $parameter->getType()->getName();
                         if ($this->isSubOfCollection($classname)) {
                             /* @var Collection $classname */

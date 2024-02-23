@@ -8,9 +8,8 @@ declare(strict_types=1);
 use Losingbattle\RocketMqHttp\Annotation\Producer;
 use Losingbattle\RocketMqHttp\Message\ProducerMessage;
 
-/**
- * @Producer(topic="order_trans_topic",groupId="GID_order_trans", tag="order_create", transctionCheckTtl=10)
- */
+
+#[Producer(groupId: "GID_order_trans", topic: "order_trans_topic", tag: "order_close", transctionCheckTtl: 10)]
 class OrderCreateTransMessage extends ProducerMessage
 {
     public function setOrderNo(string $orderNo): OrderCreateTransMessage

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Losingbattle\RocketMqHttp\Message\Response;
 
 use Losingbattle\RocketMqHttp\Constants;
-use Hyperf\Utils\Collection;
+use Hyperf\Collection\Collection;
 
 class ConsumeMessageProperties extends Collection
 {

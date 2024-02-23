@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 
-use Hyperf\Utils\Collection;
+use Hyperf\Collection\Collection;
 
 class OrderCloseData extends Collection
 {

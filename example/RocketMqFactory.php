@@ -6,8 +6,8 @@ use Losingbattle\RocketMqHttp\Option;
 use Losingbattle\RocketMqHttp\Producer;
 use GuzzleHttp\Client;
 use Hyperf\Contract\ConfigInterface;
-use Hyperf\Utils\ApplicationContext;
-use Hyperf\Utils\Packer\JsonPacker;
+use Hyperf\Context\ApplicationContext;
+use Hyperf\Codec\Packer\JsonPacker;
 use Pimple\Container;
 
 class RocketMqFactory

@@ -1,8 +1,5 @@
 <?php
-/**
- * User: cpj
- * Date: 2020/12/9
- */
+declare(strict_types=1);
 
 namespace Losingbattle\RocketMqHttp\Contract;
 

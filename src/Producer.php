@@ -8,8 +8,9 @@ use Losingbattle\RocketMqHttp\Exception\MqException;
 use Losingbattle\RocketMqHttp\Message\ProducerMessageInterface;
 use Losingbattle\RocketMqHttp\Message\Response\PublishMessageResponse;
 use Hyperf\Di\Annotation\AnnotationCollector;
-use Hyperf\Utils\Arr;
-use Hyperf\Utils\Codec\Xml;
+use Hyperf\Collection\Arr;
+use Hyperf\Codec\Xml;
+use function Hyperf\Support\retry;
 
 class Producer extends Client
 {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Losingbattle\RocketMqHttp\Message\Response;
 
-use Hyperf\Utils\Collection;
+use Hyperf\Collection\Collection;
 
 abstract class ResponseMessage extends Collection implements ResponseMessageInterface
 {

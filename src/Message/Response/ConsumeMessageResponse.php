@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Losingbattle\RocketMqHttp\Message\Response;
 
-use Hyperf\Utils\Arr;
-use Hyperf\Utils\Collection;
+use Hyperf\Collection\Arr;
+use Hyperf\Collection\Collection;
 
 class ConsumeMessageResponse extends ResponseMessage
 {

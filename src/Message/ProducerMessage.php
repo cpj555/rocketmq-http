@@ -7,7 +7,7 @@ namespace Losingbattle\RocketMqHttp\Message;
 use Losingbattle\RocketMqHttp\Constants;
 use Losingbattle\RocketMqHttp\Contract\PackerInterface;
 use Losingbattle\RocketmqHttp\Exception\MqException;
-use Hyperf\Utils\ApplicationContext;
+use Hyperf\Context\ApplicationContext;
 
 abstract class ProducerMessage extends Message implements ProducerMessageInterface
 {

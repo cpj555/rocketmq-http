@@ -6,7 +6,7 @@ namespace Losingbattle\RocketMqHttp\Message;
 
 use Losingbattle\RocketMqHttp\Contract\PackerInterface;
 use Losingbattle\RocketMqHttp\Result;
-use Hyperf\Utils\ApplicationContext;
+use Hyperf\Context\ApplicationContext;
 use Psr\Container\ContainerInterface;
 
 abstract class ConsumerMessage extends Message implements ConsumerMessageInterface

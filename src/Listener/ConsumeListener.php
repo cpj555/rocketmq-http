@@ -18,6 +18,8 @@ class ConsumeListener implements ListenerInterface
      */
     private $container;
 
+    private $logger;
+
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;

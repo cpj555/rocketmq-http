@@ -8,8 +8,8 @@ use Losingbattle\RocketMqHttp\Exception\ClientException;
 use Losingbattle\RocketMqHttp\Util\Signature;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\TransferException;
-use Hyperf\Utils\Arr;
-use Hyperf\Utils\Codec\Xml;
+use Hyperf\Collection\Arr;
+use Hyperf\Codec\Xml;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 

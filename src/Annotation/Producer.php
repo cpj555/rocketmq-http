@@ -4,25 +4,22 @@ declare(strict_types=1);
 
 namespace Losingbattle\RocketMqHttp\Annotation;
 
+use Attribute;
 use Hyperf\Di\Annotation\AbstractAnnotation;
 
-/**
- * @Annotation
- * @Target({"CLASS"})
- */
+#[Attribute(Attribute::TARGET_CLASS)]
 class Producer extends AbstractAnnotation
 {
-    public $instaceId = null;
-    
-    public $groupId = null;
-    /**
-     * @var string
-     */
-    public $topic = '';
 
-    public $tag = '';
-    
-    public $delayTtl = 0;
+    public function __construct(
+        public ?string $instaceId = null,
+        public ?string $groupId = null,
+        public string  $topic = '',
+        public string  $tag = '',
+        public int     $delayTtl = 0,
+        public int     $transctionCheckTtl = 0,
+    )
+    {
+    }
 
-    public $transctionCheckTtl = 0;
 }

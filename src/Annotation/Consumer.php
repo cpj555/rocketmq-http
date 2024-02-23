@@ -4,61 +4,26 @@ declare(strict_types=1);
 
 namespace Losingbattle\RocketMqHttp\Annotation;
 
+use Attribute;
 use Hyperf\Di\Annotation\AbstractAnnotation;
 
-/**
- * @Annotation
- * @Target({"CLASS"})
- */
+#[Attribute(Attribute::TARGET_CLASS)]
 class Consumer extends AbstractAnnotation
 {
-    /**
-     * @var string
-     */
-    public $topic = '';
-    
-    /**
-     * @var string
-     */
-    public $groupId = '';
 
-    /**
-     * @var string
-     */
-    public $name = 'Rocket-Http-Consumer';
+    public function __construct(
+        public string $topic = '',
+        public string $groupId = '',
+        public string $name = 'Rocket-Http-Consumer',
+        public int $nums = 1,
+        public ?bool $enable = null,
+        public int $maxConsumption = 1,
+        public int $numOfMessages = 1,
+        public int $waitSeconds = 5,
+        public bool $halfTrans = false,
+        public bool $orderly =false
+    )
+    {
 
-    /**
-     * @var int
-     */
-    public $nums = 1;
-
-    /**
-     * @var null|bool
-     */
-    public $enable;
-
-    /**
-     * @var int
-     */
-    public $maxConsumption = 0;
-
-    /**
-     * @var int
-     */
-    public $numOfMessages = 1;
-
-    /**
-     * @var int
-     */
-    public $waitSeconds = 5;
-
-    /**
-     * @var bool 
-     */
-    public $halfTrans = false;
-
-    /**
-     * @var bool 
-     */
-    public $orderly = false;
+    }
 }
